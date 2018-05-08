@@ -1,0 +1,44 @@
+{% extends 'base.html' %}
+
+{% load static %}
+
+{% block javascript %}
+  <script src="{% static '/js/equipos/equipos.js' %}"></script>
+{% endblock %}
+
+{% block content %}
+  <h1 class="page-header">Equipos</h1>
+
+  <p>
+    <button type="button" class="btn btn-primary js-create-equipo" data-url="{% url 'equipo_create' %}">
+      <span class="glyphicon glyphicon-plus"></span>
+      Nuevo equipo
+    </button>
+  </p>
+
+  <table class="table" id="equipo-table">
+    <thead>
+      <tr>
+        <th>#</th>
+        <th>Nombre</th>
+        <th>Funcionario</th>
+        <th>Cuenta de usuario</th>
+        <th>Contraseña</th>
+        <th>estado</th>
+        <th>Tipo de equipos</th>
+        <th>Departamento</th>
+      </tr>
+    </thead>
+    <tbody>
+      {% include 'equipos/includes/partial_equipos_list.html' %}
+    </tbody>
+  </table>
+
+  <div class="modal fade" id="modal-equipo">
+    <div class="modal-dialog">
+      <div class="modal-content">
+
+      </div>
+    </div>
+  </div>
+{% endblock %}

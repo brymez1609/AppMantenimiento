@@ -1,0 +1,29 @@
+{% for equipo in equipos %}
+  <tr>
+    <td>{{ equipo.id_equipos }}</td>
+    <td>{{ equipo.nombre_equipo }}</td>
+    <td>{{ equipo.funcionario }}</td>
+    <td>{{ equipo.cuenta_usuario }}</td>
+    <td>{{ equipo.contrasena }}</td>
+    <td>{{ equipo.estado }}</td>
+    <td>{{ equipo.direccion_ip }}</td>
+      <td>{{ equipo.id_Tipos_Equipos }}</td>
+      <td>{{ equipo.id_Departamentos }}</td>
+    <td style="width: 150px">
+      <button type="button"
+              class="btn btn-warning btn-sm js-update-equipo"
+              data-url="{% url 'equipo_update' equipo.id_equipos %}">
+        <span class="glyphicon glyphicon-pencil"></span> Edit
+      </button>
+      <button type="button"
+              class="btn btn-danger btn-sm js-delete-equipo"
+              data-url="{% url 'equipo_delete' equipo.id_equipos %}">
+        <span class="glyphicon glyphicon-trash"></span> Delete
+      </button>
+    </td>
+  </tr>
+{% empty %}
+  <tr>
+    <td colspan="8" class="text-center bg-warning">No hay equipos</td>
+  </tr>
+{% endfor %}
