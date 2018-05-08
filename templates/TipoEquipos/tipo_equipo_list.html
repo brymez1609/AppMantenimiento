@@ -1,0 +1,38 @@
+{% extends 'base.html' %}
+
+{% load static %}
+
+{% block javascript %}
+  <script src="{% static '/js/equipos/tipo_equipo.js' %}"></script>
+{% endblock %}
+
+{% block content %}
+  <h1 class="page-header">Tipo de equipos</h1>
+
+  <p>
+    <button type="button" class="btn btn-primary js-create-tipo-equipo" data-url="{% url 'tipo_equipo_create' %}">
+      <span class="glyphicon glyphicon-plus"></span>
+      Nuevo equipo
+    </button>
+  </p>
+
+  <table class="table" id="tipo-equipo-table">
+    <thead>
+      <tr>
+        <th>#</th>
+        <th>Tipo</th>
+      </tr>
+    </thead>
+    <tbody>
+      {% include 'TipoEquipos/includes/partial_tipo_equipos_list.html' %}
+    </tbody>
+  </table>
+
+  <div class="modal fade" id="modal-tipo-equipo">
+    <div class="modal-dialog">
+      <div class="modal-content">
+
+      </div>
+    </div>
+  </div>
+{% endblock %}
