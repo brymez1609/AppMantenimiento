@@ -1,6 +1,6 @@
 from django import forms
 
-from equipos.models import Equipos
+from equipos.models import Equipos, Tipos_Equipos
 
 
 class EquiposForm(forms.ModelForm):
@@ -37,3 +37,10 @@ class EquiposForm(forms.ModelForm):
 	def clean_cuenta_usuario(self):
 		return self.cleaned_data['cuenta_usuario'].lower()
 	"""
+class TiposEquiposForm(forms.ModelForm):
+	class Meta:
+		model = Tipos_Equipos
+		fields = '__all__'
+		labels = {
+			'tipo':'Tipo de equipo',
+		}

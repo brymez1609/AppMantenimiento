@@ -27,7 +27,7 @@ $(function () {
       dataType: 'json',
       success: function (data) {
         if (data.form_is_valid) {
-          $("#tipo-equipo-table tbody").html(data.html_equipo_list);
+          $("#tipo-equipo-table tbody").html(data.html_tipo_equipo_list);
           $("#modal-tipo-equipo").modal("hide");
         }
         else {
@@ -46,7 +46,7 @@ $(function () {
   $("#modal-tipo-equipo").on("submit", ".js-tipo-equipo-create-form", saveForm);
 
   // Update equipo
-  $("#tipo-equipo-table").on("click", ".js-update-tpo-equipo", loadForm);
+  $("#tipo-equipo-table").on("click", ".js-update-tipo-equipo", loadForm);
   $("#modal-tipo-equipo").on("submit", ".js-tipo-equipo-update-form", saveForm);
 
   // Delete equipo

@@ -10,8 +10,8 @@ class Equipos(models.Model):
 	contrasena = models.CharField(max_length=20,blank=True,null=True)
 	estado = models.CharField(max_length=10,blank=True,null=True)
 	direccion_ip= models.GenericIPAddressField(max_length=15)
-	id_Tipos_Equipos = models.ForeignKey('Tipos_Equipos', on_delete=models.CASCADE)
-	id_Departamento = models.ForeignKey(Departamento, on_delete=models.CASCADE)
+	id_Tipos_Equipos = models.ForeignKey('Tipos_Equipos', on_delete=models.DO_NOTHING)
+	id_Departamento = models.ForeignKey(Departamento, on_delete=models.DO_NOTHING)
 
 	def __str__(self):
 		return self.nombre_equipo

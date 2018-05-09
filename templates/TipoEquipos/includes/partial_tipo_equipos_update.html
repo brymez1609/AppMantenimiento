@@ -1,0 +1,18 @@
+<form method="post" action="{% url 'tipo_equipo_update' form.instance.pk %}" class="js-tipo-equipo-update-form">
+  {% csrf_token %}
+
+    <div class="modal-header">
+         <h4 class="modal-title">Actualizar Tipo de equipo</h4>
+    <button type="button" class="close" data-dismiss="modal" aria-label="Close">
+      <span aria-hidden="true">&times;</span>
+    </button>
+
+  </div>
+  <div class="modal-body">
+    {% include 'TipoEquipos/includes/partial_tipo_equipos_form.html' %}
+  </div>
+  <div class="modal-footer">
+    <button type="button" class="btn btn-default" data-dismiss="modal">Close</button>
+    <button type="submit" class="btn btn-primary">Actualizar</button>
+  </div>
+</form>
