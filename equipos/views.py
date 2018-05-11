@@ -5,7 +5,7 @@ from django.shortcuts import render, get_object_or_404
 from django.template.loader import render_to_string
 
 from equipos.forms import EquiposForm, TiposEquiposForm
-from equipos.models import Equipos, Tipos_Equipos
+from equipos.models import Equipos, Tipos_Equipos, Mantenimiento
 
 
 def index(request):
@@ -125,3 +125,8 @@ def tipo_equipos_delete(request, pk):
         context = {'tipos_equipos': tipo_equipo}
         data['html_form'] = render_to_string('TipoEquipos/includes/partial_tipo_equipos_delete.html', context, request=request)
     return JsonResponse(data)
+
+# -------------------------- Mantenimiento ------------------------------- #
+def mantenimiento_list(request):
+    mantenimientos = Mantenimiento.objects.all()
+    return render(request,'notification_panel.html',{'mantenimientos_list':mantenimientos})

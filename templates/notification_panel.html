@@ -1,0 +1,16 @@
+<div class="btn-group" style="padding-top: 2%;padding-right:2% ;float: right" role="group" aria-label="Button group with nested dropdown">
+    <form method="get" action="{% url 'mantenimiento_list' %}" class="js-notification">
+      <div class="btn-group" role="group">
+        <button id="btnGroupDrop1" type="button" style="border-radius: 100%" class="btn btn-primary" data-toggle="dropdown" aria-haspopup="true" aria-expanded="false"><i class="fas fa-bell"></i></button>
+        <div class="dropdown-menu animated fadeIn" aria-labelledby="btnGroupDrop1" x-placement="bottom-start" style="position: absolute; transform: translate3d(0px, 37px, 0px); top: 0px; left: 0px; will-change: transform;">
+              {% csrf_token %}
+               {% for man in mantenimientos_list %}
+                    <a class="dropdown-item" href="#">{{ man }}</a>
+               {% empty %}
+                  <a class="" href="#">No hay mantenimientos</a>
+               {% endfor %}
+        </div>
+      </div>
+    </form>
+</div>
+

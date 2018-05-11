@@ -6,17 +6,17 @@
       <button type="button"
               class="btn btn-warning btn-sm js-update-tipo-equipo"
               data-url="{% url 'tipo_equipo_update' tipo.id_tipos_equipos %}">
-        <span class="glyphicon glyphicon-pencil"></span> Editar
+        <i class="far fa-edit"></i>
       </button>
       <button type="button"
               class="btn btn-danger btn-sm js-delete-tipo-equipo"
               data-url="{% url 'tipo_equipo_delete' tipo.id_tipos_equipos %}">
-        <span class="glyphicon glyphicon-trash"></span> Eliminar
+        <i class="far fa-trash-alt"></i>
       </button>
     </td>
   </tr>
 {% empty %}
   <tr>
-    <td colspan="8" class="text-center bg-warning">No hay tipos</td>
+    <td colspan="8" class="text-center bg-warning animated bounceIn">No hay tipos</td>
   </tr>
 {% endfor %}

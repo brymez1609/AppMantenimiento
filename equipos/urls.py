@@ -22,4 +22,7 @@ urlpatterns = [
     url(r'^tipo_equipos/create/$', views.tipo_equipo_create, name='tipo_equipo_create'),
     url(r'^tipo_equipos/(?P<pk>\d+)/update/$', views.tipo_equipo_update, name='tipo_equipo_update'),
     url(r'^tipo_equipos/(?P<pk>\d+)/delete/$', views.tipo_equipos_delete, name='tipo_equipo_delete'),
+
+### URL Mantenimiento ###
+    url(r'^mantenimientos/$', views.mantenimiento_list, name='mantenimiento_list'),
 ]

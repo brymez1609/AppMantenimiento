@@ -8,10 +8,10 @@ class Equipos(models.Model):
 	funcionario = models.CharField(max_length=45,blank=True,null=True)
 	cuenta_usuario = models.CharField(max_length=20,blank=True,null=True)
 	contrasena = models.CharField(max_length=20,blank=True,null=True)
-	estado = models.CharField(max_length=10,blank=True,null=True)
+	estado = models.NullBooleanField(default=True,blank=True,null=True)
 	direccion_ip= models.GenericIPAddressField(max_length=15)
-	id_Tipos_Equipos = models.ForeignKey('Tipos_Equipos', on_delete=models.CASCADE)
-	id_Departamento = models.ForeignKey(Departamento, on_delete=models.CASCADE)
+	id_Tipos_Equipos = models.ForeignKey('Tipos_Equipos', on_delete=models.DO_NOTHING)
+	id_Departamento = models.ForeignKey(Departamento, on_delete=models.DO_NOTHING)
 
 	def __str__(self):
 		return self.nombre_equipo
@@ -45,9 +45,15 @@ class Modelos(models.Model):
 	modelo = models.CharField(max_length=20,blank=True,null=True)
 	id_equipos = models.ForeignKey('Equipos', on_delete= models.CASCADE)
 
-class Historial(models.Model):
+class Historial_mantenimiento(models.Model):
 	id_historial = models.AutoField(primary_key=True,max_length=5)
-	historial = models.CharField(max_length=100,blank=True,null=True)
-	fecha= models.DateTimeField()
-	descripcion = models.CharField(max_length=100,blank=True,null=True)
+	fecha_historial = models.DateField(auto_now_add=True)
+	id_mantenimiento = models.ForeignKey('Mantenimiento', on_delete=models.CASCADE)
+
+class Mantenimiento(models.Model):
+	id_mantenimiento = models.AutoField(primary_key=True,max_length=10)
+	fecha = models.DateField(auto_now_add=True)
+	revisado =  models.BooleanField(default=False)
+	id_equipos = models.ForeignKey('Equipos',on_delete=models.CASCADE)
+
 

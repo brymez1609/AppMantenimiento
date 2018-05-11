@@ -1,5 +1,5 @@
 $(function () {
-
+  $('#tipo-equipo-table tbody').animateCss('lightSpeedIn');
   /* Functions */
 
   var loadForm = function () {
@@ -31,7 +31,19 @@ $(function () {
           $("#tipo-equipo-table tbody").html(data.html_tipo_equipo_list);
           $('#tipo-equipo-table tbody').animateCss('lightSpeedIn');
           $("#modal-tipo-equipo").modal("hide");
-          $.notify("Hello World");
+          $.notify("Guardado con exito!", {
+              placement: {
+                  from: 'bottom',
+                  align: 'center'
+              },
+              icon:'far fa-paw',
+              type:'success',
+              animate: {
+                  enter: 'animated bounceIn',
+                  exit: 'animated bounceOut'
+              },
+              delay:100
+          });
         }
         else {
           $("#modal-tipo-equipo .modal-content").html(data.html_form);

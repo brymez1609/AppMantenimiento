@@ -7,14 +7,14 @@
 {% endblock %}
 
 {% block content %}
-  <h1 class="page-header">Tipo de equipos</h1>
+  <h1 class="page-header" style="margin-top: -5%">Tipo de equipos</h1>
 
-  <p>
-    <button type="button" class="btn btn-primary js-create-tipo-equipo" data-url="{% url 'tipo_equipo_create' %}">
-      <span class="glyphicon glyphicon-plus"></span>
-      Nuevo tipo
+  <div style="float: right;margin-top: -2%">
+    <button type="button" class="btn btn-success js-create-tipo-equipo" data-url="{% url 'tipo_equipo_create' %}">
+<i class="fas fa-user-plus"></i>
+
     </button>
-  </p>
+  </div>
 
   <table class="table" id="tipo-equipo-table">
     <thead>

@@ -1,7 +1,7 @@
 $(function () {
 
   /* Functions */
-
+  $('#equipo-table tbody').animateCss('lightSpeedIn');
   var loadForm = function () {
     var btn = $(this);
     $.ajax({
@@ -28,7 +28,21 @@ $(function () {
       success: function (data) {
         if (data.form_is_valid) {
           $("#equipo-table tbody").html(data.html_equipo_list);
+          $('#equipo-table tbody').animateCss('lightSpeedIn');
           $("#modal-equipo").modal("hide");
+          $.notify("Guardado con exito!", {
+              placement: {
+                  from: 'bottom',
+                  align: 'center'
+              },
+              icon:'far fa-paw',
+              type:'success',
+              animate: {
+                  enter: 'animated bounceIn',
+                  exit: 'animated bounceOut'
+              },
+              delay:100
+          });
         }
         else {
           $("#modal-equipo .modal-content").html(data.html_form);
