@@ -128,5 +128,10 @@ def tipo_equipos_delete(request, pk):
 
 # -------------------------- Mantenimiento ------------------------------- #
 def mantenimiento_list(request):
-    mantenimientos = Mantenimiento.objects.all()
-    return render(request,'notification_panel.html',{'mantenimientos_list':mantenimientos})
+    mantenimientos = Mantenimiento.objects.all().values()
+    data = {}
+    if request.is_ajax():
+        print('epa')
+        data = list(mantenimientos)
+        return JsonResponse(data,safe=False)
+    return render(request,'notification_panel.html',{'context':''})
