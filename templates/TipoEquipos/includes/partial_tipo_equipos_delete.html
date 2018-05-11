@@ -1,4 +1,4 @@
-<form method="post" action="{% url 'tipo_equipo_delete' equipos.id_equipos %}" class="js-tipo-equipo-delete-form">
+<form method="post" action="{% url 'tipo_equipo_delete' tipos_equipos.id_tipos_equipos %}" class="js-tipo-equipo-delete-form">
   {% csrf_token %}
   <div class="modal-header">
     <h4 class="modal-title">Confirmar elminar tipo de equipo</h4>
@@ -8,7 +8,8 @@
 
   </div>
   <div class="modal-body">
-    <h5 class="">Esta seguro de eliminar el tipo de equipo <strong>{{ equipos.nombre_equipo }}</strong>?</h5>
+    <h5 class="">Esta seguro de eliminar el tipo de equipo <strong>{{ tipos_equipos }}</strong>?</h5>
+
   </div>
   <div class="modal-footer">
     <button type="button" class="btn btn-default" data-dismiss="modal">Cerrar</button>

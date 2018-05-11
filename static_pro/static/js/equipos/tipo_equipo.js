@@ -51,6 +51,6 @@ $(function () {
 
   // Delete equipo
   $("#tipo-equipo-table").on("click", ".js-delete-tipo-equipo", loadForm);
-  $("#modal-tipo-equipo").on("submit", ".js-equipo-tipo-delete-form", saveForm);
+  $("#modal-tipo-equipo").on("submit", ".js-tipo-equipo-delete-form", saveForm);
 
 });
