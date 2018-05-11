@@ -117,11 +117,10 @@ def tipo_equipos_delete(request, pk):
     if request.method == 'POST':
         tipo_equipo.delete()
         data['form_is_valid'] = True
-        tipo_equipos = Equipos.objects.all()
+        tipo_equipos = Tipos_Equipos.objects.all()
         data['html_tipo_equipo_list'] = render_to_string('TipoEquipos/includes/partial_tipo_equipos_list.html', {
             'tipos_equipos': tipo_equipos
         })
-        print(data['html_tipo_equipo_list'])
     else:
         context = {'tipos_equipos': tipo_equipo}
         data['html_form'] = render_to_string('TipoEquipos/includes/partial_tipo_equipos_delete.html', context, request=request)

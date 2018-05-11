@@ -9,7 +9,7 @@
     <link href="{% static 'css/bootstrap.css'%}" rel="stylesheet">
     <link href="{% static 'css/bootstrap.min.css'%}" rel="stylesheet">
     <link href="{% static 'css/index.css'%}" rel="stylesheet">
-
+    <link href="{% static 'css/animate.css'%}" rel="stylesheet">
 
   </head>
 <body class="content">
@@ -40,8 +40,13 @@
             </div>
         </div>
     </div>
-<script src="{% static 'js/jquery-3.1.1.min.js' %}"></script>
+    <script src="{% static 'js/jquery-3.1.1.min.js' %}"></script>
     <script src="{% static 'js/bootstrap.min.js' %}"></script>
+
+    <script src="{% static 'js/bootstrap-notify-3.1.3/bootstrap-notify.js' %}"></script>
+    <script src="{% static 'js/bootstrap-notify-3.1.3/bootstrap-notify.min.js' %}"></script>
+    <script src="{% static 'js/bootstrap-notify-3.1.3/animacion.js' %}"></script>
+
     {% block javascript %}
     {% endblock %}
 </body>
