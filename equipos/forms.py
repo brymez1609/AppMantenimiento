@@ -3,7 +3,7 @@ from crispy_forms.helper import FormHelper
 from crispy_forms.layout import Submit, Layout, Div, HTML, Field
 from django import forms
 
-from equipos.models import Equipos, Tipos_Equipos
+from equipos.models import Equipos, Tipos_Equipos, Mantenimiento
 
 
 class EquiposForm(forms.ModelForm):
@@ -72,3 +72,9 @@ class TiposEquiposForm(forms.ModelForm):
         labels = {
             'tipo': 'Tipo de equipo',
         }
+
+class MantenimientoForm(forms.ModelForm):
+    class Meta:
+        model = Mantenimiento
+        fields = '__all__'
+

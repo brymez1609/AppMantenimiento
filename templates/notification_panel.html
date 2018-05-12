@@ -1,12 +1,12 @@
 {% load  staticfiles %}
 
-<div class="btn-group" style="padding-top: 2%;padding-right:2% ;float: right" role="group" aria-label="Button group with nested dropdown">
+<div class="btn-group" style="padding-top: 2%;padding-left:50% ;float: left" role="group" aria-label="Button group with nested dropdown">
     <form method="get" action="{% url 'mantenimiento_list' %}" data-url="{% url 'mantenimiento_list' %}" class="js-notification">
       <div class="btn-group" role="group">
         <button id="btnGroupDrop1" type="submit" style="border-radius: 100%" class="btn btn-primary" data-toggle="dropdown" aria-haspopup="true" aria-expanded="false"><i class="fas fa-bell"></i></button>
-        <div id="dropdown-notifications" class="dropdown-menu animated fadeIn" aria-labelledby="btnGroupDrop1" x-placement="bottom-start" style="position: absolute; transform: translate3d(0px, 37px, 0px); top: 0px; left: 0px; will-change: transform;">
+        <div id="dropdown-notifications" class="dropdown-menu animated fadeIn" aria-labelledby="btnGroupDrop1" x-placement="bottom-start" style="position: absolute; transform: translate3d(0px, 37px, 0px); top: 10px; left: -20px; will-change: transform;">
               {% csrf_token %}
-            <a class="dropdown-item" href="#"></a>
+
 
         </div>
       </div>

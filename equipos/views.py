@@ -4,7 +4,7 @@ from django.shortcuts import render, get_object_or_404
 # Create your views here.
 from django.template.loader import render_to_string
 
-from equipos.forms import EquiposForm, TiposEquiposForm
+from equipos.forms import EquiposForm, TiposEquiposForm, MantenimientoForm
 from equipos.models import Equipos, Tipos_Equipos, Mantenimiento
 
 
@@ -128,10 +128,18 @@ def tipo_equipos_delete(request, pk):
 
 # -------------------------- Mantenimiento ------------------------------- #
 def mantenimiento_list(request):
-    mantenimientos = Mantenimiento.objects.all().values()
+    mantenimientos = Mantenimiento.objects.filter(revisado=False).values()
     data = {}
+
     if request.is_ajax():
-        print('epa')
         data = list(mantenimientos)
+        for a in data:
+            id_equipo = a['id_equipos_id']
+            a['id_equipos_id'] = Equipos.objects.get(id_equipos=id_equipo).nombre_equipo
+        if request.method == "POST":
+            objeto = Mantenimiento.objects.get(id_mantenimiento=request.POST['id'])
+            objeto.revisado = True
+            objeto.save()
+            return JsonResponse(data, safe=False)
         return JsonResponse(data,safe=False)
     return render(request,'notification_panel.html',{'context':''})

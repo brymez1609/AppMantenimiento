@@ -52,7 +52,7 @@ class Historial_mantenimiento(models.Model):
 
 class Mantenimiento(models.Model):
 	id_mantenimiento = models.AutoField(primary_key=True,max_length=10)
-	fecha = models.DateField(auto_now_add=True)
+	fecha = models.DateField(null=False)
 	revisado =  models.BooleanField(default=False)
 	id_equipos = models.ForeignKey('Equipos',on_delete=models.CASCADE)
 
